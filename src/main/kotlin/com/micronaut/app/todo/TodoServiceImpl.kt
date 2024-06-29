@@ -7,7 +7,7 @@ class TodoServiceImpl(
     private val todoRepository: TodoRepository
 ): TodoService {
     override fun listAll(): List<Todo> {
-        TODO("Not yet implemented")
+       return todoRepository.findAll()
     }
 
     override fun getById(id: Long): Todo {
