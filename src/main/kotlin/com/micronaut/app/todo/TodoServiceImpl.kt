@@ -10,19 +10,27 @@ class TodoServiceImpl(
        return todoRepository.findAll()
     }
 
-    override fun getById(id: Long): Todo {
-        TODO("Not yet implemented")
+    override fun getById(id: Long): Todo? {
+       val todoItem = todoRepository.findById(id).orElse(null)
+        return todoItem
     }
 
     override fun create(todo: Todo): Todo {
-        TODO("Not yet implemented")
+        return todoRepository.save(todo)
     }
 
     override fun updateById(id: Long, todo: Todo): Todo {
-        TODO("Not yet implemented")
+        if (todoRepository.existsById(id)){
+            return todoRepository.update(todo)
+        }
+        throw IllegalArgumentException("Todo not found.")
     }
 
     override fun deleteById(id: Long) {
-        TODO("Not yet implemented")
+        if (todoRepository.existsById(id)){
+            todoRepository.deleteById(id)
+        } else {
+            throw IllegalArgumentException("Todo Not found")
+        }
     }
 }
