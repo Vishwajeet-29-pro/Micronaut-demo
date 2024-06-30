@@ -13,4 +13,6 @@ data class Todo(
     var id: Long? = null,
     var title: String,
     var completed: Boolean
-)
+) {
+    constructor(): this(null,"",false)
+}

@@ -1,10 +1,11 @@
 package com.micronaut.app.todo
 
+import jakarta.inject.Inject
 import jakarta.inject.Singleton
 
 @Singleton
 class TodoServiceImpl(
-    private val todoRepository: TodoRepository
+    @Inject private val todoRepository: TodoRepository
 ): TodoService {
     override fun listAll(): List<Todo> {
        return todoRepository.findAll()
@@ -16,7 +17,7 @@ class TodoServiceImpl(
     }
 
     override fun create(todo: Todo): Todo {
-        return todoRepository.save(todo)
+        return todoRepository.merge(todo)
     }
 
     override fun updateById(id: Long, todo: Todo): Todo {
