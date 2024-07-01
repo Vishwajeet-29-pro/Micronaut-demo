@@ -9,7 +9,8 @@
 #jpa:
 #  default:
 #    entity-scan:
-#      packages: 'com.micronaut.app.todo'
+#      packages:
+#        - 'com.micronaut.app.todo'
 #    properties:
 #      hibernate:
 #        hbm2ddl:
@@ -17,3 +18,5 @@
 #        show_sql: true
 #        bytecode:
 #          provider: none
+#        connection:
+#          db-type: h2
