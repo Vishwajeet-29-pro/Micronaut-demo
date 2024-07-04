@@ -1,12 +1,20 @@
 package com.micronaut.app.todo
 
+import io.micronaut.context.annotation.Value
 import jakarta.inject.Inject
 import jakarta.inject.Singleton
 
 @Singleton
 class TodoServiceImpl(
-    @Inject private val todoRepository: TodoRepository
+    @Inject private val todoRepository: TodoRepository,
+    @Value("\${myapp.greeting}") val greeting: String,
+    @Value("\${myapp.number}") val number: Number
 ): TodoService {
+
+    fun testConfig(): String {
+        return "$greeting with the value : $number"
+    }
+
     override fun listAll(): List<Todo> {
        return todoRepository.findAll()
     }
