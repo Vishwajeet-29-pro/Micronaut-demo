@@ -8,7 +8,7 @@ import jakarta.inject.Singleton
 class TodoServiceImpl(
     @Inject private val todoRepository: TodoRepository,
     @Value("\${myapp.greeting}") val greeting: String,
-    @Value("\${myapp.number}") val number: Number
+    @Value("\${myapp.number}") val number: Int
 ): TodoService {
 
     override fun testConfig(): String {
