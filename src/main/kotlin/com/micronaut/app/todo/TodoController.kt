@@ -12,6 +12,11 @@ import jakarta.inject.Inject
 @Controller("/api/todo")
 class TodoController(@Inject private val todoService: TodoService) {
 
+    @Get("/test")
+    fun testGreeting(): String {
+        return todoService.testConfig()
+    }
+
     @Get("/")
     fun listAllTodo(): List<Todo> = todoService.listAll()
 

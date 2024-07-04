@@ -11,7 +11,7 @@ class TodoServiceImpl(
     @Value("\${myapp.number}") val number: Number
 ): TodoService {
 
-    fun testConfig(): String {
+    override fun testConfig(): String {
         return "$greeting with the value : $number"
     }
 

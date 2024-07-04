@@ -1,6 +1,7 @@
 package com.micronaut.app.todo
 
 interface TodoService {
+    fun testConfig(): String
     fun listAll(): List<Todo>
     fun getById(id: Long): Todo?
     fun create(todo: Todo): Todo
